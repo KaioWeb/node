@@ -15,6 +15,9 @@ router.post('/create', employeedController.create);
 
 router.get('/get/:id', employeedController.get);
 
+router.post('/update/:id', employeedController.update);
+
+router.post('/delete', employeedController.delete);
 
 
 module.exports = router;

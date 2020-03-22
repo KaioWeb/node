@@ -64,6 +64,35 @@ controllers.create = async (req,res) => {
     })
 }
 
+controllers.update = async (req,res) => {
+    const {id} = req.params;
+    console.log(id);
+    const {name, email, address, phone, role} = req.body;
+    const data = await Employee.update({
+        name:name,
+        email:email,
+        address:address,
+        phone:phone,
+        roleId:role
+    },{
+        where:{id:id}
+    }).then(function(data){
+        return data;
+    })
+    .catch(erro => {
+        return error;
+    })
+    res.json({success: true, data:data, message:"Update Successful"});
+}
+
+controllers.delete = async (req,res) => {
+    const {id} = req.body;
+    const del = await Employee.destroy({
+        where:{id:id}
+    })
+    res.json({sucess:true, deleted:del, message:"Deleted successful"});
+}
+
 // controllers.testdata = async (req, res) => {
 //     const response =  await sequelize.sync().then(function(){
 
