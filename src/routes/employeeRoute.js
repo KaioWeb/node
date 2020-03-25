@@ -9,7 +9,7 @@ const employeedController = require('../controllers/employeeController');
 //     res.json({status:'Employeed Save'});
 // });
 
-router.get('/list', employeedController.list);
+router.get('/', employeedController.list);
 
 router.post('/create', employeedController.create);
 

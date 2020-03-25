@@ -33,8 +33,8 @@ controllers.list = async(req, res) => {
     .catch(error => {
         return error; 
     })
-
-    res.json({ success:true, data:data });
+    res.set("x-total-count", parseInt(data.length));
+    res.json(data);
 }
 
 controllers.create = async (req,res) => {
